@@ -1,10 +1,13 @@
 const defaultState = {
+    texto: "",
     List: [],
     Planet: null
 }
 
 export default function(state = defaultState, action) {
     switch (action.type) {
+        case "TEXT_CHANGED" :
+            return { ...state, texto: action.payload }
         case "FETCH_PLANETS":
             return { ...state, list: action.payload.data }
         case "FETCH_PLANET":

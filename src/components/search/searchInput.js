@@ -1,65 +1,37 @@
-import React, { Component } from 'react'
-// import PropTypes from 'prop-types'
-import { connect } from 'react-redux'
+import React, { createRef, useEffect } from 'react'
+import PropTypes from 'prop-types'
 import './searchInput.css'
 
-export class SearchInput extends Component {
-    // static propTypes = {
-    //     prop: PropTypes
-    // }
+function SearchInput({ debounce, onChange }) {
+  const inputRef = createRef()
+  let debounceTimeout = null
 
-    constructor(props) {
-        super(props);
-        this.state = {title: "", result: []};
-    }
+  useEffect(() => {
+    inputRef.current.focus()
+  })
 
-    handleChange(event) {
-        this.setState({title: event.target.value})
-        // console.log(this.state.title)
-        console.log(event.target.value)
-    }
+  function debounceInput({ target }) {
+    clearTimeout(debounceTimeout)
 
-    search = async event => {
-        this.setState({title: event.target.value})
-        const res = await fetch(`https://swapi.co/api/planets/?search=${event.target.value}`)
-        const { results = [] } = await res.json()
-        
-        results.map(p => ({
-          ...p,
-          // For some reason API doesnt return id
-          id: p.url.slice(0, -1).split('/planets/')[1],
-        }))
-        this.setState({result: results})
-        console.log(results)
-    }
+    debounceTimeout = setTimeout(() => {
+      onChange(target.value)
+    }, debounce)
+  }
 
-
-    render() {
-        return (
-            <div>
-                <input
-                    type="text"
-                    className="search-control"
-                    name="title"
-                    onInput={this.search.bind(this)}
-                    value={this.state.title}
-                    placeholder="Pesquise os planetas" />
-                    <ul>
-                        {this.state.result.map(p => 
-                            <li>{p.name}</li>
-                        )}
-                    </ul>
-            </div>
-        )
-    }
+  return (
+    <input
+      type="text"
+      ref={inputRef}
+      className="search-control"
+      onInput={debounceInput}
+      placeholder="Pesquise os planetas"
+    />
+  )
 }
 
-const mapStateToProps = (state) => ({
-    
-})
-
-const mapDispatchToProps = {
-    
+SearchInput.propTypes = {
+  debounce: PropTypes.number,
+  onChange: PropTypes.func,
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(SearchInput)
+export default SearchInput

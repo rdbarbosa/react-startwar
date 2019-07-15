@@ -1,15 +1,26 @@
-import React, { Fragment } from 'react';
+import React from 'react';
 import starWarsLogo from './assets/images/star-wars-logo.png'
-
-import { SearchInput, SearchResults } from './components'
-
+import { usePlanetDetails } from './effects'
+import { PlanetDetalhe } from './components'
+import { Search } from './views'
 
 function App() {
+  
+  const [planet, getPlanet] = usePlanetDetails();
+  
+  function clearPlanet() {
+    getPlanet(null)
+  }
+
   return (
-    <Fragment>
+    <>
       <img className="main_logo" src={starWarsLogo} alt="Star Wars: React App" />
-      <SearchInput />
-    </Fragment>
+      {planet ? (
+        <PlanetDetalhe  planet={planet} onClose={clearPlanet} onNext={getPlanet} />
+      ) : (
+        <Search onSelect={getPlanet} />
+      )}
+    </>
   );
 }
 
