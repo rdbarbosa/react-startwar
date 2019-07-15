@@ -9,18 +9,18 @@ const PlanetDetalhe = ({planet, onClose, onNext}) => (
             X
         </div>
         <div className="planet-details__sections">
-            {planet.id}
+            {planet.filme.map(f => (<p key={f}>{f}</p>))}
         </div>
         <div className="planet-details__sections">
 
         </div>
-        <button onClick={() => onNext(planet.id + 1)}>Next</button>
+        <button onClick={() => onNext(Number(planet.id) + 1)}>Next</button>
     </section>
 )
 
 PlanetDetalhe.propTypes = {
     planet: PropTypes.shape({
-        id: PropTypes.number,
+        id: PropTypes.string,
         name: PropTypes.string,
         diameter: PropTypes.string,
         climate: PropTypes.string,
