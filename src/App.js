@@ -6,7 +6,7 @@ import { Search } from './views'
 
 function App() {
   
-  const [planet, getPlanet] = usePlanetDetails();
+  const [planet, getPlanet, isLoading] = usePlanetDetails();
   
   function clearPlanet() {
     getPlanet(null)
@@ -16,7 +16,7 @@ function App() {
     <>
       <img className="main_logo" src={starWarsLogo} alt="Star Wars: React App" />
       {planet ? (
-        <PlanetDetalhe  planet={planet} onClose={clearPlanet} onNext={getPlanet} />
+        <PlanetDetalhe  planet={planet} isLoading={isLoading} onClose={clearPlanet} onNext={getPlanet} />
       ) : (
         <Search onSelect={getPlanet} />
       )}

@@ -14,19 +14,24 @@ export const search = async q => {
 export const getDetails = async id => {
   const res = await fetch(`${planetsURL}/${id}`)
   const item = await res.json()
-  item.id = item.url.slice(0, -1).split('/planets/')[1]
-  let nomefilmes = []
-  await Promise.all(item.films.map(async f => {
-    getFilmes(f)
-    const filmes = await fetch(f)
-    const filme = await filmes.json()
-    nomefilmes.push(filme.title)
-  }))
-  
-  item.filme = nomefilmes
-  console.log(item)
-  // await Promise.all(planet)
-  return item
+  // console.log(res)
+  if(res.ok){
+    item.id = item.url.slice(0, -1).split('/planets/')[1]
+    let nomefilmes = []
+    
+    await Promise.all(item.films.map(async f => {
+      getFilmes(f)
+      const filmes = await fetch(f)
+      const filme = await filmes.json()
+      nomefilmes.push(filme.title)
+    }))
+    
+    item.filme = nomefilmes
+    // console.log(item)
+    return item
+  }else{
+    return null
+  }
 }
 
 

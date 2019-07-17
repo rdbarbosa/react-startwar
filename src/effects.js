@@ -17,14 +17,18 @@ export function usePlanetSearch() {
 
 export function usePlanetDetails() {
   const [planet, setPlanet] = useState(null)
+  const [isLoading, setIsLoading] = useState(false)
 
-  function getPlanet(id) {
+  async function getPlanet(id) {
     if (id === null) {
       setPlanet(null)
     } else {
-      getDetails(id).then(setPlanet)
+      setIsLoading(true)
+      const data = await getDetails(id)
+      setPlanet(data)
+      setIsLoading(false)
     }
   }
 
-  return [planet, getPlanet]
+  return [planet, getPlanet,  isLoading]
 }

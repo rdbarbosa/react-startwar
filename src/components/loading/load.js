@@ -5,7 +5,7 @@ import './load.css'
 const Load = ({ isLoading, children }) =>
   isLoading ? (
     <div className="loader">
-      <i className="fa fa-1x fa-rebel fa-spin" />
+      Loading...
     </div>
   ) : (
     children

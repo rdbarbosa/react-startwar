@@ -25,7 +25,7 @@
   
   .planet-details__sections {
     display: inline-block;
-    width: 48%;
+    width: 100%;
     padding: 10px 1%;
     vertical-align: top;
     text-transform: capitalize;
@@ -33,6 +33,22 @@
   
   .planet-details__detail {
     padding: 4px;
+  }
+  .planet-details__center{
+    display: flex;
+    justify-content: center;
+  }
+  .planet-details__btn {
+    background: transparent;
+    font-size: 20px;
+    color: yellow;
+    -webkit-border-radius: 10;
+    -moz-border-radius: 10;
+    border-radius: 10px;
+    font-family: Arial;
+    padding: 10px 20px 10px 20px;
+    text-decoration: none;
+    border: solid yellow 2px;
   }
   
   @media (max-width: 400px) {
