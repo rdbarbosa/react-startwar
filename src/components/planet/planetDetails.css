@@ -9,9 +9,11 @@
     border: solid 3px;
     border-radius: 5px;
     color: yellow;
+    background-color: black;
+    opacity: 0.8;
   }
   
-  .planet-details__clear {
+  .planet-details-clear {
     position: absolute;
     right: 10px;
     top: 5px;
@@ -19,26 +21,26 @@
     font-weight: 800;
   }
   
-  .planet-details__header {
+  .planet-details-header {
     margin: 0;
   }
   
-  .planet-details__sections {
+  .planet-details-sections {
     display: inline-block;
     width: 100%;
-    padding: 10px 1%;
+    padding: 20px 1%;
     vertical-align: top;
     text-transform: capitalize;
   }
   
-  .planet-details__detail {
+  .planet-details-detail {
     padding: 4px;
   }
-  .planet-details__center{
+  .planet-details-center{
     display: flex;
     justify-content: center;
   }
-  .planet-details__btn {
+  .planet-details-btn {
     background: transparent;
     font-size: 20px;
     color: yellow;
@@ -55,7 +57,7 @@
     .planet-details {
       max-width: 100%;
     }
-    .planet-details__sections {
+    .planet-details-sections {
       width: 100%;
     }
   }

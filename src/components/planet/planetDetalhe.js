@@ -6,28 +6,28 @@ import './planetDetails.css';
 const PlanetDetalhe = ({planet, isLoading, onClose, onNext}) => (
     <Load isLoading={isLoading}>
         <section className="planet-details">
-            <h2 className="planet-details__header">{planet.name}</h2>
-            <div className="planet-details__clear" onClick={onClose}>
+            <h2 className="planet-details-header">{planet.name}</h2>
+            <div className="planet-details-clear" onClick={onClose}>
                 X
             </div>
-            <div className="planet-details__sections">
-                <div className="planet-details__detail">
-                    População: {planet.population}
+            <div className="planet-details-sections">
+                <div className="planet-details-detail">
+                    Population: {planet.population}
                 </div>
-                <div className="planet-details__detail">
-                    Clima: {planet.climate}
+                <div className="planet-details-detail">
+                    Climate: {planet.climate}
                 </div>
-                <div className="planet-details__detail">
-                    Terreno: {planet.terrain}
+                <div className="planet-details-detail">
+                    Terrain: {planet.terrain}
                 </div>
             </div>
             
-            <div className="planet-details__sections">
-                <h3 className="planet-details__header">Destaque em filmes</h3>
+            <div className="planet-details-sections">
+                <h3 className="planet-details-header">Featured in {planet.filme.length} films</h3>
                 {planet.filme.map(f => (<p key={f}>{f}</p>))}
             </div>
-            <div className="planet-details__center">
-                <button className="planet-details__btn" onClick={() => onNext(Number(planet.id) + 1)}>Next</button>
+            <div className="planet-details-center">
+                <button className="planet-details-btn" onClick={() => onNext(Number(planet.id) + 1)}>Next</button>
             </div>
         </section>
     </Load>
