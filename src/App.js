@@ -1,7 +1,7 @@
 import React from 'react';
 import starWarsLogo from './assets/images/star-wars-logo.png'
 import { usePlanetDetails } from './effects'
-import { PlanetDetalhe } from './components'
+import { PlanetDetail } from './components'
 import { Search } from './views'
 
 function App() {
@@ -16,7 +16,7 @@ function App() {
     <>
       <img className="main_logo" src={starWarsLogo} alt="Star Wars: React App" />
       {planet ? (
-        <PlanetDetalhe  planet={planet} isLoading={isLoading} onClose={clearPlanet} onNext={getPlanet} />
+        <PlanetDetail  planet={planet} isLoading={isLoading} onClose={clearPlanet} onNext={getPlanet} />
       ) : (
         <Search onSelect={getPlanet} />
       )}

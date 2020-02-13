@@ -1,9 +1,9 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { Load } from '../'
+import { Load } from '..'
 import './planetDetails.css';
 
-const PlanetDetalhe = ({planet, isLoading, onClose, onNext}) => (
+const PlanetDetail = ({planet, isLoading, onClose, onNext}) => (
     <Load isLoading={isLoading}>
         <section className="planet-details">
             <h2 className="planet-details-header">{planet.name}</h2>
@@ -33,7 +33,7 @@ const PlanetDetalhe = ({planet, isLoading, onClose, onNext}) => (
     </Load>
 )
 
-PlanetDetalhe.propTypes = {
+PlanetDetail.propTypes = {
     planet: PropTypes.shape({
         id: PropTypes.string,
         name: PropTypes.string,
@@ -48,4 +48,4 @@ PlanetDetalhe.propTypes = {
     onClose: PropTypes.func,
 }
 
-export default PlanetDetalhe
+export default PlanetDetail
