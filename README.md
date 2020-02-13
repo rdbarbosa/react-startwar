@@ -1,25 +1,18 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+# Star Wars React
+
+Este projeto foi iniciado com o [Create React App].
+
+Uma aplicação web de pesquisa de planetas do Star Wars
 
 [![Netlify Status](https://api.netlify.com/api/v1/badges/8c8093d4-8539-4e91-bc27-e4e009367082/deploy-status)](https://app.netlify.com/sites/romantic-darwin-1a422e/deploys)
 
-## Available Scripts
-
-In the project directory, you can run:
+**URL:** [Demo](https://romantic-darwin-1a422e.netlify.com/)
 
 ### `npm start`
 
-Runs the app in the development mode.<br>
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+Executa o aplicativo no modo de desenvolvimento.<br>
+Open [http://localhost:3000](http://localhost:3000) para visualizá-lo no navegador.
 
-The page will reload if you make edits.<br>
-You will also see any lint errors in the console.
-
-### `npm run build`
-
-Builds the app for production to the `build` folder.<br>
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.<br>
-Your app is ready to be deployed!
-
-
+## Tecnologias
+* React (hooks) + Redux
+* Netlify
