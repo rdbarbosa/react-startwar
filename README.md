@@ -1,5 +1,7 @@
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
+[![Netlify Status](https://api.netlify.com/api/v1/badges/8c8093d4-8539-4e91-bc27-e4e009367082/deploy-status)](https://app.netlify.com/sites/romantic-darwin-1a422e/deploys)
+
 ## Available Scripts
 
 In the project directory, you can run:
